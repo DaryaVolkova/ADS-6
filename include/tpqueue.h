@@ -1,12 +1,15 @@
 // Copyright 2022 NNTU-CS
 #ifndef INCLUDE_TPQUEUE_H_
 #define INCLUDE_TPQUEUE_H_
+#include <string>
 
 template<typename T, int size>
 class TPQueue {
+
  private:
-    T arr[size];
+    T arr[5];
     int first, last, count;
+    
  public:
     TPQueue() :first(0), last(0), count(0) {}
     bool isEmpty() const {
@@ -40,8 +43,7 @@ class TPQueue {
                     arr[ind].ch = arg.ch;
                     arr[ind].prior = arg.prior;
                     count++;
-                }
-                else if (getPrior(arr[cur]) < getPrior(arg)) {
+                } else if (getPrior(arr[cur]) < getPrior(arg)) {
                     int ind = last++ % size;
                     arr[ind].ch = arr[count - 1].ch;
                     arr[ind].prior = arr[count - 1].prior;
@@ -52,8 +54,7 @@ class TPQueue {
                     }
                     arr[cur].ch = arg.ch;
                     arr[cur].prior = arg.prior;
-                }
-                else if (getPrior(arr[cur]) == getPrior(arg)) {
+                } else if (getPrior(arr[cur]) == getPrior(arg)) {
                     int ind = last++ % size;
                     arr[ind].ch = arr[count - 1].ch;
                     arr[ind].prior = arr[count - 1].prior;
