@@ -5,11 +5,10 @@
 
 template<typename T, int size>
 class TPQueue {
-
  private:
     T arr[5];
     int first, last, count;
-    
+
  public:
     TPQueue() :first(0), last(0), count(0) {}
     bool isEmpty() const {
